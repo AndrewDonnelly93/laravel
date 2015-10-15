@@ -5,20 +5,22 @@
     <div class="second-bg"></div>
     <div class="input-container">
          <input class="form-field" type="text" name="name" placeholder="Enter your name" value="{!! old('name') !!}">
-         <div class="error"></div>
+         <div class="error">{{ $errors->first('name') }}</div>
      </div>
     <div class="input-container">
          <input class="form-field" type="text" name="email" placeholder="Enter your e-mail" value="{!! old('email') !!}">
-         <div class="error"></div>
+         <div class="error">{{ $errors->first('email') }}</div>
     </div>
     <div class="input-container">
           <input class="form-field" type="password" name="password" placeholder="Enter your password">
-          <div class="error"></div>
+          <div class="error">{{ $errors->first('password') }}</div>
      </div>
      <div class="input-container">
            <input class="form-field" type="password" name="password_confirmation" placeholder="Enter your password again">
            <div class="error"></div>
      </div>
-     <input value="Register" class="btn" type="submit">
+     <input value="Register" class="btn" type="submit"><!--
+     --><p>Or</p><!--
+     --><a href="/auth/login" class="btn form-btn">Log in</a>
 </form>
 </div>

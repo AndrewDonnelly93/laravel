@@ -281,6 +281,9 @@ input.form-field {
     background: rgba(0, 0, 0, 0.35); }
   .modal-form .btn {
     margin-bottom: 0; }
+  .modal-form p {
+    margin: 0 10px;
+    display: inline-block; }
 
 .registration-form {
   height: 376px;
