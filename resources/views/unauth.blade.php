@@ -4,8 +4,8 @@
 @stop
 
 @section('auth-section')
-<li><a class="modal-btn" href="">Enter</a></li>
-<li><a class="modal-btn" href="/registration">Registration</a></li>
+<li><a class="modal-btn" href="auth/login">Enter</a></li>
+<li><a class="modal-btn" href="auth/register">Registration</a></li>
 @stop
 
 @section('content')

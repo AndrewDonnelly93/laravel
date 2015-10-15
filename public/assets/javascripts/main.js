@@ -6,12 +6,22 @@ function ifFooterFixed() {
     }
 }
 
+function ifModalActive() {
+    if ($(".window-overlay").hasClass("active")) {
+        $("header").addClass("blur");
+        $(".content").addClass("blur");
+        $("footer").addClass("blur");
+    }
+}
+
 $(function() {
     ifFooterFixed();
+    ifModalActive();
 });
 
 $(function() {
     $(window).resize(function() {
         ifFooterFixed();
+        ifModalActive();
     });
 });
