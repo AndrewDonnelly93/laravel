@@ -18,6 +18,8 @@ $border-form: #1d7279;
 $content-frame: #353b40;
 $registration-form-width: 500px;
 $registration-form-height: 376px;
+$error-logo-w: 305px;
+$error-logo-h: 150px;
 
 * {
   margin: 0;
@@ -112,10 +114,20 @@ footer {
   @include blur(5);
 }
 
-.error-logo {
-  background: transparent url(../images/error-404.png) 0 0 no-repeat;
-  @include size(305px,150px);
-  margin: 150px auto 40px;
+.error-section {
+  position: fixed;
+  @include size($error-logo-w, $error-logo-h + $btn-h + 10);
+  top: 50%;
+  left: 50%;
+  margin-left: -1/2 * $error-logo-w;
+  margin-top: -1/2 * ($error-logo-h + $btn-h + 10);
+  .error-logo {
+    background: transparent url(../images/error-404.png) 0 0 no-repeat;
+    @include size($error-logo-w, $error-logo-h);
+  }
+  .btn {
+    margin-top: 10px;
+  }
 }
 
 .btn {
@@ -260,7 +272,6 @@ input.form-field {
 .modal-form {
   @include border-box();
   width: $registration-form-width;
-  position: relative;
   padding: 35px 0;
   margin: 0 auto;
   background: url("../images/diagonal-35.png") repeat 0 0;
@@ -280,15 +291,20 @@ input.form-field {
     margin: 0 10px;
     display: inline-block;
   }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -1/2 * $registration-form-width;
 }
 
 .registration-form {
   height: $registration-form-height;
-  position: fixed;
-  top: 50%;
-  left: 50%;
   margin-top: -1/2 * $registration-form-height;
-  margin-left: -1/2 * $registration-form-width;
+}
+
+.login-form {
+  height: $registration-form-height;
+  margin-top: -1/2 * $registration-form-height;
 }
 
 input:-webkit-autofill,
@@ -299,7 +315,3 @@ input:-webkit-autofill:active {
   color: $light-gray !important;
   -webkit-text-fill-color: $light-gray !important;
 }
-/*
-input:-webkit-autofill {
-:-webkit-text-fill-color: $light-gray !important;
-*/

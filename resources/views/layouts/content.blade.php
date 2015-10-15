@@ -15,6 +15,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
+@yield('error')
 <header>
 <h1>@yield('title')</h1>
 <div class="layout-center-wrapper">

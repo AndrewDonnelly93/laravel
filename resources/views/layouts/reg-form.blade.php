@@ -19,8 +19,8 @@
            <input class="form-field" type="password" name="password_confirmation" placeholder="Enter your password again">
            <div class="error"></div>
      </div>
-     <input value="Register" class="btn" type="submit"><!--
+     <input value="Sign up" class="btn" type="submit"><!--
      --><p>Or</p><!--
-     --><a href="/auth/login" class="btn form-btn">Log in</a>
+     --><a href="/auth/login" class="btn form-btn">Sign in</a>
 </form>
 </div>
