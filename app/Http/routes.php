@@ -54,4 +54,12 @@ Route::post('edit-email/{id}', [
     'uses' => 'Edit\UserEditController@editEmail'
 ]);
 
+Route::get('/change-password/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@getChangePasswordForm'
+]);
 
+Route::post('change-password/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@changePassword'
+]);

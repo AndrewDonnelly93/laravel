@@ -5,7 +5,6 @@ use App\User;
 use Validator;
 use Hash;
 use Auth;
-use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -21,9 +20,12 @@ class UserEditController extends Controller
         return view('edit-email', ['user' => User::findOrFail($id)]);
     }
 
+    public function getChangePasswordForm($id) {
+        return view('change-password', ['user' => User::findOrFail($id)]);
+    }
+
     public function editName(Request $request)
     {
-        $postPassword = $request->password;
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
             $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
@@ -53,7 +55,6 @@ class UserEditController extends Controller
 
     public function editEmail(Request $request)
     {
-        $postPassword = $request->password;
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
             $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
@@ -76,6 +77,35 @@ class UserEditController extends Controller
             $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
             $user = User::find($id);
             $user->email = $request['email'];
+            $user->save();
+            header('Refresh: 0; url=/');
+        }
+    }
+
+    public function changePassword(Request $request)
+    {
+        Validator::extend('hashmatch', function($attributes, $value, $parameters)
+        {
+            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
+            $user = User::find($id);
+            return Hash::check($value, $user->$parameters[0]);
+        });
+        $messages = array(
+            'hashmatch' => 'The password you have entered didn\'t match edited account password.'
+        );
+        $rules =  [
+            'password' => 'required|hashmatch:password',
+            'new_password' => 'required|confirmed|min:6'
+        ];
+        $v = Validator::make($request->all(), $rules, $messages );
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        } else {
+            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
+            $user = User::find($id);
+            $user->password = bcrypt($request['new_password']);
             $user->save();
             header('Refresh: 0; url=/');
         }

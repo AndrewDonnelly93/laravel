@@ -27,6 +27,7 @@ $result-table-second-cell-w: 500px;
 $result-table-third-cell-w: 150px;
 $result-table-fourth-cell-w: 150px;
 $edit-name-form-h: 240px;
+$change-password-form-h: 307px;
 
 * {
   margin: 0;
@@ -520,4 +521,9 @@ input:-webkit-autofill:active {
 .edit-email-form {
   height: $edit-name-form-h;
   margin-top: -1/2 * $edit-name-form-h;
+}
+
+.change-password-form {
+  height: $change-password-form-h;
+  margin-top: -1/2 * $change-password-form-h;
 }

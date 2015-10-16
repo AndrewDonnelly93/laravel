@@ -42,7 +42,7 @@ if (isset($page)&&(!empty($page))) {
         --><a class="edit" href="/edit-name/{{ $user['attributes']['id'] }}"></a></div></td>
         <td><div class="user-content clearfix"><div class="user-info">{{ $user['attributes']['email'] }}</div><!--
         --><a class="edit" href="/edit-email/{{ $user['attributes']['id'] }}"></a></div></td>
-        <td><a class="edit" href=""></a></td>
+        <td><a class="edit" href="/change-password/{{ $user['attributes']['id'] }}"></a></td>
         <td>
          @if ($user['attributes']['name'] == $currentUser['attributes']['name'])
             You can't delete current user
