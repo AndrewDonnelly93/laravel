@@ -464,6 +464,7 @@ input:-webkit-autofill:active {
     display: block;
     float: right; }
 
-.edit-name-form {
+.edit-name-form,
+.edit-email-form {
   height: 240px;
   margin-top: -120px; }

@@ -516,7 +516,8 @@ input:-webkit-autofill:active {
   }
 }
 
-.edit-name-form {
+.edit-name-form,
+.edit-email-form {
   height: $edit-name-form-h;
   margin-top: -1/2 * $edit-name-form-h;
 }

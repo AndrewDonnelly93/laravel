@@ -34,15 +34,24 @@ Route::get('edit-profiles', ['middleware' => 'auth', function()
     return view('edit-profiles');
 }]);
 
-Route::get('/edit-name/{id}', function($id) {
-    if (Auth::check()) {
-        return view('edit-name', ['user' => User::findOrFail($id)]);
-    }
-});
+Route::get('/edit-name/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@getEditNameForm'
+]);
 
 Route::post('edit-name/{id}', [
     'middleware' => 'auth',
-    'uses' => 'Edit\EditController@editName'
+    'uses' => 'Edit\UserEditController@editName'
+]);
+
+Route::get('/edit-email/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@getEditEmailForm'
+]);
+
+Route::post('edit-email/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@editEmail'
 ]);
 
 
