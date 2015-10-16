@@ -20,6 +20,12 @@ $registration-form-width: 500px;
 $registration-form-height: 376px;
 $error-logo-w: 305px;
 $error-logo-h: 150px;
+$login-form-height: 238px;
+$result-table-thead-cell-h: 40px;
+$result-table-first-cell-w: 300px;
+$result-table-second-cell-w: 500px;
+$result-table-third-cell-w: 150px;
+$result-table-fourth-cell-w: 150px;
 
 * {
   margin: 0;
@@ -303,8 +309,8 @@ input.form-field {
 }
 
 .login-form {
-  height: $registration-form-height;
-  margin-top: -1/2 * $registration-form-height;
+  height: $login-form-height;
+  margin-top: -1/2 * $login-form-height;
 }
 
 input:-webkit-autofill,
@@ -314,4 +320,159 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px $form-field-bg inset;
   color: $light-gray !important;
   -webkit-text-fill-color: $light-gray !important;
+}
+
+.link {
+  color: $green;
+  font-size: 12px;
+  display: block;
+  text: {
+    decoration: none;
+    transform: uppercase;
+  }
+}
+
+.auth-user {
+  height: 50px;
+  line-height: 50px;
+  .link {
+    float: right;
+  }
+}
+
+.users {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  background: #000;
+  background: rgba(#000, .55);
+  color: $light-blue;
+  .heading {
+    display: inline-block;
+  }
+  .link {
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
+}
+
+%basic-block {
+  border: 1px solid $blue;
+  border: 1px solid rgba($blue,.25);
+  background: rgba(#000,.25);
+  @include box-shadow(-1px 1.732px 4px 0px rgba(0, 0, 0, 0.41));
+  @include border-box();
+}
+
+%result-table-cells {
+  &:first-child {
+    width: $result-table-first-cell-w;
+  }
+  &:nth-child(2) {
+    width: $result-table-second-cell-w;
+  }
+  &:nth-child(3) {
+    width: $result-table-third-cell-w;
+  }
+  &:last-child {
+    width: $result-table-fourth-cell-w;
+  }
+}
+
+.users-table {
+  width: 100%;
+  @extend %basic-block;
+  border: 0;
+  display: block;
+  color: $base-body-color;
+  font: {
+    weight: 600;
+    size: 12px;
+  }
+  position: relative;
+  text:
+  {
+    align: center;
+    transform: uppercase;
+  }
+  thead {
+    font: {
+      size: 14px;
+    }
+    @include box-shadow(0 0 5px 1px rgba($blue, 0.5), inset 0 0 5px 1px rgba($blue, 0.5));
+    @include gradient-border(to top, rgb(0, 173, 194) 0%, rgb(213, 253, 255) 35%,
+            rgb(102, 239, 255) 100%);
+    display: block;
+    text-transform: uppercase;
+    color: $blue;
+    th {
+      @extend %result-table-cells;
+      border-right: 1px solid $blue;
+      border-right: 1px solid rgba($blue,.25);
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background: url("../images/lines-25-290x30.png") repeat-x 0 0;
+      }
+      td {
+        @extend %result-table-cells;
+        border-left: 1px solid $blue;
+        border-left: 1px solid rgba($blue,.25);
+        border-right: 1px solid $blue;
+        border-right: 1px solid rgba($blue,.25);
+      }
+    }
+    &:last-child {
+      border-bottom: 1px solid $blue;
+      border-bottom: 1px solid rgba($blue,.25);
+    }
+  }
+  thead tr {
+    height: 40px;
+    line-height: 40px;
+  }
+  tr {
+    height: 35px;
+    line-height: 35px;
+  }
+}
+
+.pagination {
+  list-style: none;
+  display: inline-block;
+  margin: 10px 0;
+  li {
+    border: 1px solid $blue;
+    border: 1px solid rgba($blue,.25);
+    display: inline-block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: $blue;
+    background: #000;
+    background: rgba(#000,.25);
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      text-decoration: none;
+      color: $blue;
+    }
+    &.active {
+      color: $green;
+    }
+    &.disabled {
+      color: $light-gray;
+    }
+  }
 }

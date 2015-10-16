@@ -17,13 +17,9 @@
 <body>
 @yield('error')
 <header>
-<h1>@yield('title')</h1>
 <div class="layout-center-wrapper">
-<nav>
-<ul class="main-auth-menu">
+@yield('page-title')
 @yield('auth-section')
-</ul>
-</nav>
 </div>
 </header>
 <section class="content">

@@ -143,6 +143,14 @@
   filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$px}');
 }
 
+@mixin gradient-border($grad-params...) {
+  border: 1px solid transparent;
+  -moz-border-image: -moz-linear-gradient($grad-params);
+  -webkit-border-image: -webkit-linear-gradient($grad-params);
+  border-image: linear-gradient($grad-params);
+  border-image-slice: 1;
+}
+
 %button-base-font {
   font: {
     family: "Roboto", sans-serif;

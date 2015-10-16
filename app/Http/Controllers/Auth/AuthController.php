@@ -64,5 +64,5 @@ class AuthController extends Controller
         ]);
     }
 
-    protected $redirectPath = '/dashboard';
+    protected $redirectPath = '/edit-profiles';
 }

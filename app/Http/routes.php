@@ -14,7 +14,7 @@
 
 Route::get('/', function () {
     if (Auth::check()) {
-            return view('welcome');
+            return view('edit-profiles');
         } else {
             return view('unauth');
     }
@@ -29,5 +29,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::get('edit-profiles', ['middleware' => 'auth', function()
+{
+    return view('edit-profiles');
+}]);
 
 

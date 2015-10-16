@@ -302,8 +302,8 @@ input.form-field {
   margin-top: -188px; }
 
 .login-form {
-  height: 376px;
-  margin-top: -188px; }
+  height: 238px;
+  margin-top: -119px; }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -312,3 +312,123 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px #171a1d inset;
   color: #afafaf !important;
   -webkit-text-fill-color: #afafaf !important; }
+
+.link {
+  color: #00fe48;
+  font-size: 12px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+.auth-user {
+  height: 50px;
+  line-height: 50px; }
+  .auth-user .link {
+    float: right; }
+
+.users {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  background: #000;
+  background: rgba(0, 0, 0, 0.55);
+  color: #d5fcff; }
+  .users .heading {
+    display: inline-block; }
+  .users .link {
+    position: absolute;
+    right: 20px;
+    top: 0; }
+
+.users-table {
+  border: 1px solid #00f4fd;
+  border: 1px solid rgba(0, 244, 253, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -1px 1.732px 4px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: -1px 1.732px 4px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: -1px 1.732px 4px 0px rgba(0, 0, 0, 0.41);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.users-table thead th:first-child, .users-table tbody tr td:first-child {
+  width: 300px; }
+.users-table thead th:nth-child(2), .users-table tbody tr td:nth-child(2) {
+  width: 500px; }
+.users-table thead th:nth-child(3), .users-table tbody tr td:nth-child(3) {
+  width: 150px; }
+.users-table thead th:last-child, .users-table tbody tr td:last-child {
+  width: 150px; }
+
+.users-table {
+  width: 100%;
+  border: 0;
+  display: block;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase; }
+  .users-table thead {
+    font-size: 14px;
+    -webkit-box-shadow: 0 0 5px 1px rgba(0, 244, 253, 0.5), inset 0 0 5px 1px rgba(0, 244, 253, 0.5);
+    -moz-box-shadow: 0 0 5px 1px rgba(0, 244, 253, 0.5), inset 0 0 5px 1px rgba(0, 244, 253, 0.5);
+    box-shadow: 0 0 5px 1px rgba(0, 244, 253, 0.5), inset 0 0 5px 1px rgba(0, 244, 253, 0.5);
+    border: 1px solid transparent;
+    -moz-border-image: -moz-linear-gradient(to top, #00adc2 0%, #d5fdff 35%, #66efff 100%);
+    -webkit-border-image: -webkit-linear-gradient(to top, #00adc2 0%, #d5fdff 35%, #66efff 100%);
+    border-image: linear-gradient(to top, #00adc2 0%, #d5fdff 35%, #66efff 100%);
+    border-image-slice: 1;
+    display: block;
+    text-transform: uppercase;
+    color: #00f4fd; }
+    .users-table thead th {
+      border-right: 1px solid #00f4fd;
+      border-right: 1px solid rgba(0, 244, 253, 0.25); }
+      .users-table thead th:last-child {
+        border-right: 0; }
+  .users-table tbody tr:nth-child(even) {
+    background: url("../images/lines-25-290x30.png") repeat-x 0 0; }
+  .users-table tbody tr td {
+    border-left: 1px solid #00f4fd;
+    border-left: 1px solid rgba(0, 244, 253, 0.25);
+    border-right: 1px solid #00f4fd;
+    border-right: 1px solid rgba(0, 244, 253, 0.25); }
+  .users-table tbody:last-child {
+    border-bottom: 1px solid #00f4fd;
+    border-bottom: 1px solid rgba(0, 244, 253, 0.25); }
+  .users-table thead tr {
+    height: 40px;
+    line-height: 40px; }
+  .users-table tr {
+    height: 35px;
+    line-height: 35px; }
+
+.pagination {
+  list-style: none;
+  display: inline-block;
+  margin: 10px 0; }
+  .pagination li {
+    border: 1px solid #00f4fd;
+    border: 1px solid rgba(0, 244, 253, 0.25);
+    display: inline-block;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #00f4fd;
+    background: #000;
+    background: rgba(0, 0, 0, 0.25); }
+    .pagination li:last-child {
+      margin-right: 0; }
+    .pagination li a {
+      text-decoration: none;
+      color: #00f4fd; }
+    .pagination li.active {
+      color: #00fe48; }
+    .pagination li.disabled {
+      color: #afafaf; }
