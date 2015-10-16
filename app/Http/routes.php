@@ -1,5 +1,5 @@
 <?php
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -33,5 +33,16 @@ Route::get('edit-profiles', ['middleware' => 'auth', function()
 {
     return view('edit-profiles');
 }]);
+
+Route::get('/edit-name/{id}', function($id) {
+    if (Auth::check()) {
+        return view('edit-name', ['user' => User::findOrFail($id)]);
+    }
+});
+
+Route::post('edit-name/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\EditController@editName'
+]);
 
 

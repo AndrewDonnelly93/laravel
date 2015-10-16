@@ -9,9 +9,10 @@
 @stop
 
 @section('content')
-<nav class="users"><div class="heading">Users</div><a class="link" href="/auth/register">Register new user</a></nav>
+<nav class="users"><div class="heading">Users</div><a class="link" href="auth/register">Register new user</a></nav>
 <?php
-$users = App\User::paginate(1);
+$users = App\User::paginate(9);
+$currentUser = Auth::User();
 $countPages = $users->lastPage();
 $page = Request::Input('page');
 if (isset($page)&&(!empty($page))) {
@@ -32,11 +33,23 @@ if (isset($page)&&(!empty($page))) {
 </thead>
 <tbody>
 @foreach ($users as $user)
-   <tr>
-        <td>{{ $user['attributes']['name'] }}</td>
-        <td>{{ $user['attributes']['email'] }}</td>
+    @if ($user['attributes']['name'] == $currentUser['attributes']['name'])
+        <tr class="current-user">
+    @else
+        <tr>
+    @endif
+        <td><div class="user-content clearfix"><div class="user-info">{{ $user['attributes']['name'] }}</div><!--
+        --><a class="edit" href="/edit-name/{{ $user['attributes']['id'] }}"></a></div></td>
+        <td><div class="user-content clearfix"><div class="user-info">{{ $user['attributes']['email'] }}</div><!--
+        --><a class="edit" href=""></a></div></td>
         <td><a class="edit" href=""></a></td>
-        <td><a class="delete" href=""></a></td>
+        <td>
+         @if ($user['attributes']['name'] == $currentUser['attributes']['name'])
+            You can't delete current user
+         @else
+            <a class="delete" href=""></a>
+         @endif
+         </td>
    </tr>
 @endforeach
 </tbody>

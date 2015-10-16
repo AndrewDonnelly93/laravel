@@ -26,6 +26,7 @@ $result-table-first-cell-w: 300px;
 $result-table-second-cell-w: 500px;
 $result-table-third-cell-w: 150px;
 $result-table-fourth-cell-w: 150px;
+$edit-name-form-h: 240px;
 
 * {
   margin: 0;
@@ -223,9 +224,6 @@ input.form-field {
     weight: 300;
     size: 12px;
   }
-  text: {
-    transform: uppercase;
-  }
   line-height: normal;
   position: relative;
   z-index: 2;
@@ -371,9 +369,17 @@ input:-webkit-autofill:active {
 %result-table-cells {
   &:first-child {
     width: $result-table-first-cell-w;
+    .user-info {
+      @extend %text-overflow;
+      max-width: .7 * $result-table-first-cell-w;
+    }
   }
   &:nth-child(2) {
     width: $result-table-second-cell-w;
+    .user-info {
+      @extend %text-overflow;
+      max-width: .7 * $result-table-second-cell-w;
+    }
   }
   &:nth-child(3) {
     width: $result-table-third-cell-w;
@@ -441,8 +447,27 @@ input:-webkit-autofill:active {
     line-height: 40px;
   }
   tr {
+    &.current-user {
+      color: $orange;
+    }
     height: 35px;
-    line-height: 35px;
+    .user-info {
+      line-height: 35px;
+    }
+  }
+  .edit {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    @include size(25px,25px);
+    background: transparent url(../images/editsvg.png) 0 0 no-repeat;
+  }
+  .delete {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    @include size(25px,25px);
+    background: transparent url(../images/icon_delete.png) 0 0 no-repeat;
   }
 }
 
@@ -475,4 +500,23 @@ input:-webkit-autofill:active {
       color: $light-gray;
     }
   }
+}
+
+.user-content {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  .user-info {
+    float: left;
+    margin-right: 20px;
+  }
+  .edit {
+    display: block;
+    float: right;
+  }
+}
+
+.edit-name-form {
+  height: $edit-name-form-h;
+  margin-top: -1/2 * $edit-name-form-h;
 }
