@@ -1,3 +1,5 @@
+Я отправлял резюме на верстальщика. С Laravel раньше не сталкивался
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
