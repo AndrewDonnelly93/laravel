@@ -8,7 +8,7 @@
              <div class="error">{{ $errors->first('email') }}</div>
      </div>
     <div class="input-container">
-          <input class="form-field" type="password" name="password" placeholder="Enter password of edited account">
+          <input class="form-field" type="password" name="password" placeholder="Enter password of current account">
           <div class="error">{{ $errors->first('password') }}</div>
      </div>
      <input value="Submit" class="btn" type="submit">

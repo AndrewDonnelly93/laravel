@@ -38,8 +38,7 @@ class UserEditController extends Controller
     {
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
-            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
-            $user = User::find($id);
+            $user = Auth::user();
             return Hash::check($value, $user->$parameters[0]);
         });
         $messages = array(
@@ -68,8 +67,7 @@ class UserEditController extends Controller
     {
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
-            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
-            $user = User::find($id);
+            $user = Auth::user();
             return Hash::check($value, $user->$parameters[0]);
         });
         $messages = array(
@@ -98,8 +96,7 @@ class UserEditController extends Controller
     {
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
-            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
-            $user = User::find($id);
+            $user = Auth::user();
             return Hash::check($value, $user->$parameters[0]);
         });
         $messages = array(
@@ -128,8 +125,7 @@ class UserEditController extends Controller
     {
         Validator::extend('hashmatch', function($attributes, $value, $parameters)
         {
-            $id = substr(strrchr($_SERVER['REQUEST_URI'], "/"), 1);
-            $user = User::find($id);
+            $user = Auth::user();
             return Hash::check($value, $user->$parameters[0]);
         });
         $messages = array(

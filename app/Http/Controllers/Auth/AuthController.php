@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -30,7 +31,9 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', ['except' => ['getLogout', 'getRegister', 'postRegister',
+            'getLogin', 'postLogin']]);
+        $this->user = Auth::check() ?  Auth::user() : null;
     }
 
     /**
@@ -62,6 +65,18 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Logs the user back in as himself in the event he has registered a new user.
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        if(!is_null($this->user)) {
+            Auth::login($this->user);
+        }
     }
 
     protected $redirectPath = '/edit-profiles';
