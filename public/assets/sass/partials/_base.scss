@@ -28,6 +28,7 @@ $result-table-third-cell-w: 150px;
 $result-table-fourth-cell-w: 150px;
 $edit-name-form-h: 240px;
 $change-password-form-h: 307px;
+$delete-user-form-h: 169px;
 
 * {
   margin: 0;
@@ -526,4 +527,14 @@ input:-webkit-autofill:active {
 .change-password-form {
   height: $change-password-form-h;
   margin-top: -1/2 * $change-password-form-h;
+}
+
+.alert {
+  margin-bottom: 10px;
+  color: $orange;
+}
+
+.delete-user-form {
+  height: $delete-user-form-h;
+  margin-top: -1/2 * $delete-user-form-h;
 }

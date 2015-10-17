@@ -63,3 +63,13 @@ Route::post('change-password/{id}', [
     'middleware' => 'auth',
     'uses' => 'Edit\UserEditController@changePassword'
 ]);
+
+Route::get('/delete-user/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@getDeleteUserForm'
+]);
+
+Route::post('/delete-user/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'Edit\UserEditController@deleteUser'
+]);

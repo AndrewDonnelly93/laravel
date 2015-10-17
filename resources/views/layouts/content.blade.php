@@ -13,6 +13,11 @@
           rel="stylesheet"
           type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../assets/javascripts/html5shiv.min.js"></script>
+    <script src="../assets/javascripts/html5shiv-printshiv.min.js"></script>
+    <!--[if lte IE 8]>
+    <script src="../assets/javascripts/selectivizr-min.js"></script>
+    <![endif]-->
 </head>
 <body>
 @yield('error')

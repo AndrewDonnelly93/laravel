@@ -472,3 +472,11 @@ input:-webkit-autofill:active {
 .change-password-form {
   height: 307px;
   margin-top: -153.5px; }
+
+.alert {
+  margin-bottom: 10px;
+  color: #ff5400; }
+
+.delete-user-form {
+  height: 169px;
+  margin-top: -84.5px; }

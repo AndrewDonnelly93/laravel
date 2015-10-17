@@ -9,6 +9,13 @@
 @stop
 
 @section('content')
+@if ( Session::has('flash_message') )
+
+  <div class="alert {{ Session::get('flash_type') }}">
+      <h3>{{ Session::get('flash_message') }}</h3>
+  </div>
+
+@endif
 <nav class="users"><div class="heading">Users</div><a class="link" href="auth/register">Register new user</a></nav>
 <?php
 $users = App\User::paginate(9);
@@ -47,7 +54,7 @@ if (isset($page)&&(!empty($page))) {
          @if ($user['attributes']['name'] == $currentUser['attributes']['name'])
             You can't delete current user
          @else
-            <a class="delete" href=""></a>
+            <a class="delete" href="/delete-user/{{ $user['attributes']['id'] }}"></a>
          @endif
          </td>
    </tr>

@@ -17,6 +17,11 @@ function ifModalActive() {
 $(function() {
     ifFooterFixed();
     ifModalActive();
+    if ($(".delete-record").length) {
+        $(".delete-record").on('click', function () {
+            return confirm("Are you sure to delete this user?");
+        });
+    }
 });
 
 $(function() {
